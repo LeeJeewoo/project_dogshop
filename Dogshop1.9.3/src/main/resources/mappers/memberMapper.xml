@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+	<!-- 게시판 글 작성 -->
+	<insert id="register">
+	    INSERT INTO DS_MEMBER(   USERID 
+	   					       , USERPASS 
+	   					       , USERNAME
+	   					       , USERGEN
+	   					       , USERTEL
+	   					       , USERMAIL
+	   					       , USEROADDRESS
+	   					       , USERADDRESS
+	   					       , USERDATEADDRESS
+	   					       , USERBIRTH 	)
+	                  VALUES(    #{userId} 
+	                 		   , #{userPass}
+	                 		   , #{userName}
+	                 		   , #{userGen}
+	                 		   , #{userTel}
+	                 		   , #{userMail}
+	                 		   , #{userOaddress}
+	                 		   , #{userAddress}
+	                 		   , #{userDateaddress}
+	                 		   , #{userBirth}  )
+    </insert>
+    
+    <!-- 로그인 -->
+	<select id="login" resultType="kr.co.vo.MemberVO">
+		SELECT USERID, USERPASS 
+		  FROM DS_MEMBER
+		 WHERE USERID = #{userId}
+		   <!--  AND USERPASS = #{userPass} -->   
+	</select>
+    
+    <select id="idChk" resultType="int">
+	SELECT COUNT(*) FROM DS_MEMBER
+	WHERE USERID = #{userId}
+	</select>
+	
+	<select id="infoChk" resultType="kr.co.vo.MemberVO">
+	SELECT *
+	FROM DS_MEMBER
+	WHERE USERID = #{userId}
+		   <!--  AND USERPASS = #{userPass} -->
+	</select>
+	
+	<select id="passChk" resultType="kr.co.vo.MemberVO">
+	SELECT USERID, USERPASS 
+	FROM DS_MEMBER
+	WHERE USERID = #{userId}
+	  <!--  AND USERPASS = #{userPass} -->
+	</select>
+	
+	<update id="userUpdate" parameterType="kr.co.vo.MemberVO">
+   	
+   	UPDATE DS_MEMBER
+   	   SET USERPASS = #{userPass},
+   	       USERMAIL = #{userMail},
+   	       USERTEL = #{userTel},
+   	       USEROADDRESS = #{userOaddress},
+   	       USERADDRESS = #{userAddress},
+   	       USERDATEADDRESS = #{userDateaddress}
+    WHERE USERID = #{userId}
+    
+   	</update>
+   	
+   	<select id="searchPw" resultType="int">
+	SELECT COUNT(*) FROM DS_MEMBER
+	WHERE USERID = #{userId}
+	  AND USERNAME = #{userName}
+	  AND USERTEL = #{userTel}
+	</select>
+	
+	 <select id="searchId" resultType="int">
+	SELECT COUNT(*) FROM DS_MEMBER
+	WHERE USERNAME = #{userName}
+	  AND USERTEL = #{userTel}
+	</select> 
+	
+	<select id="resultId" resultType="kr.co.vo.MemberVO">
+	SELECT USERID FROM DS_MEMBER
+	WHERE USERNAME = #{userName}
+	  AND USERTEL = #{userTel}
+	</select>
+	
+   	<update id="changePw" parameterType="kr.co.vo.MemberVO">
+   	UPDATE DS_MEMBER
+   	   SET USERPASS = #{userPass}
+    WHERE USERID = #{userId}
+   	</update>
+	
+	<delete id="userDrop" parameterType="kr.co.vo.MemberVO">
+		DELETE DS_MEMBER
+		WHERE USERID = #{userId}
+		<!--  AND USERPASS = #{userPass} -->
+	
+	
+	</delete>
+	
+   	
+   
+	
+   
+</mapper>

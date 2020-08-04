@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+/* 슬라이드 이미지 */
+div#spot{
+	position:relative;
+	top:20px;
+	left:300px;
+	width:1302px;
+	
+	overflow:hidden;
+	padding:0px;
+	margin:0px;
+}
+ul.slide{
+	width:3906px;
+	position:relative;
+	padding:0px;
+	margin:0px;
+}
+div#spot ul.slide>li{
+	list-style:none;
+	width:1302px;
+	float:left;
+	height:550px;
+}
+div#spot ul.slide>li>img{
+	width:100%;
+	height:100%;
+}
+
+/* 컨텐츠 */
+#content{
+	float:left;
+	width:100%; 
+	min-height:800px;
+}
+div.c1{
+	position:relative;
+	left:300px;
+	width:1302px;
+	padding:0;
+	
+	margin:0;
+	min-height:800px;
+	/* border-top:2px solid black;
+	border-bottom:2px solid black; */
+}
+div.c1 h1{
+	margin-bottom:0;
+}
+div.c1 a{
+	font-size:10pt;
+}
+/* div.c1 td{
+	padding:10px;
+	padding-left:0;
+	padding-bottom:0;
+} */
+div.c1 img{
+	width:425px; 
+	height:220px;
+}
+.product1{
+	float:left;
+	width:430px;
+	height:230px;
+	
+	margin-right:4px;
+	text-align:center;
+}
+
+div.c2{
+	position:relative;
+	left:300px;
+	width:1302px;
+	padding:0;
+	margin:0;
+	min-height:270px;
+	/* border-top:2px solid black;
+	border-bottom:2px solid black; */
+}
+div.c21{
+	float:left;
+	
+	width:651px;
+	padding:0;
+	margin:0;
+	/* border-top:2px solid black;
+	border-bottom:2px solid black; */
+}
+div.c22{
+	float:left;
+	
+	width:651px;
+	padding:0;
+	margin:0;
+	/* border-top:2px solid black;
+	border-bottom:2px solid black; */
+}
+div.c2 h1{
+	margin-bottom:0;
+}
+div.c2 a{
+	font-size:10pt;
+}
+div.c21 td{
+	padding:5px;
+	padding-right:50px;
+	
+}
+div.c21 td a{
+	color:black;
+	text-decoration:none;
+	font-weight:bold;
+	font-size:10pt;
+}
+div.c21 td.date{
+	font-size:10pt;
+}
+div.c22 img{
+	width:200px; 
+	height:170px;
+}
+
+div.c3{
+	position:relative;
+	left:300px;
+	width:1302px;
+	padding:0;
+	margin:0;
+	/* border-top:2px solid black;
+	border-bottom:2px solid black; */
+}
+div.c3 h1{
+	margin-bottom:0;
+}
+div.c3 a{
+	font-size:10pt;
+}
+div.c3 table{
+	border-spacing:30px;
+}
+div.c3 img{
+	border:3px solid black;
+	width:200px; 
+	height:170px;
+}
+div.c3 td{
+	background-color:black;
+	color:white;
+	text-align:center;
+	font-size:16pt;
+}
+
+
+

@@ -1,0 +1,96 @@
+#join_member{
+	width : 150px;
+	height : 30px;
+	font-size : 13px;
+	border 1px solid skyblue;
+	background-color : #747474;
+	color: #FFFFFF; padding: 3px;
+	border-top-left-radius: 3px; 
+	border-bottom-left-radius: 3px;
+	border-top-right-radius: 3px; 
+	border-bottom-right-radius: 3px;
+}
+#male{
+	width : 50px;
+	height : 30px;
+	font-size : 13px;
+	border 1px solid skyblue;
+	background-color : rgba(0,0,0,0);
+	color: skyblue; padding: 5px;
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+
+}
+
+#female{
+	width : 50px;
+	height : 30px;
+	font-size : 13px;
+	border 1px solid skyblue;
+	background-color : rgba(0,0,0,0);
+	color: skyblue; padding: 5px;
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+
+}
+
+#searchId{
+	width : 100px;
+	height : 30px;
+	font-size : 13px;
+	border 1px solid skyblue;
+	background-color :  #747474;
+	color: #FFFFFF; padding: 5px;
+	border-top-left-radius: 3px; 
+	border-bottom-left-radius: 3px;
+	border-top-right-radius: 3px; 
+	border-bottom-right-radius: 3px;
+
+
+
+}
+
+
+#search_id{
+	width : 145px;
+	height : 30px;
+	font-size : 13px;
+	border 1px solid skyblue;
+	background-color :  #747474;
+	color: #FFFFFF; padding: 5px;
+	border-top-left-radius: 3px; 
+	border-bottom-left-radius: 3px;
+	border-top-right-radius: 3px; 
+	border-bottom-right-radius: 3px;
+}
+
+#search_pw{
+	width : 145px;
+	height : 30px;
+	font-size : 13px;
+	border 1px solid skyblue;
+	background-color :  #747474;
+	color: #FFFFFF; padding: 3px;
+	border-top-left-radius: 3px; 
+	border-bottom-left-radius: 3px;
+	border-top-right-radius: 3px; 
+	border-bottom-right-radius: 3px;
+
+}
+
+#move_login{
+width : 150px;
+	height : 30px;
+	font-size : 13px;
+	border 1px solid skyblue;
+	background-color :  #747474;
+	color: #FFFFFF; padding: 5px;
+	border-top-left-radius: 3px; 
+	border-bottom-left-radius: 3px;
+	border-top-right-radius: 3px; 
+	border-bottom-right-radius: 3px;
+}

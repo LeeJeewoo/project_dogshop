@@ -1,0 +1,67 @@
+@charset "EUC-KR";
+#content1{
+	float:left;
+	width:100%; 
+	min-height:600px;
+}
+.c1{   /* div태그 속성 */
+	position:relative;
+	text-align:left;
+}
+.c1 .title1{   /* 테이블 1열속성*/
+	
+	background-color:#F2F2F2;
+	width:100px;
+}
+.c1 .content1{    /* 테이블 2열속성 */
+	width:500px;
+}
+.c1 .content1 input{ /* 테이블 2열 input tag속성 */
+	width:300px;
+	height:30px;
+}
+.c1 .content1 select{ /* 테이블 2열 select tag속성 */
+	width:100px;
+	height:30px;
+}
+.c1 .content2 input{  
+	width:500px;
+	height:30px;
+}
+.c1 .description textarea{ /* 테이블 2열 textarea속성 */
+	height:200px;
+	width:500px;
+}
+.c1 table {   /* 테이블전체 */
+	border-collapse:collapse;
+	border-top:2px solid #A6A6A6;
+	border-bottom:2px solid #A6A6A6;
+}
+.c1 table tr td{  /* 테이블 행열속성 */
+	padding:10px;
+	border-top:1px solid #D9D9D9;
+	border-bottom:1px solid #D9D9D9;
+	
+}
+
+
+.c1 .button1{
+	width:250px;
+	height:70px;
+	background-color:#D9D9D9;
+	color:black;
+	border:0;
+	font-size:16pt;
+	padding:10px;
+	border-radius:5px;
+}
+.c1 .button2{
+	width:250px;
+	height:70px;
+	background-color:#FBC773; /* 노랑색 */
+	color:black;
+	border:0;
+	font-size:16pt;
+	padding:10px;
+	border-radius:5px;
+}

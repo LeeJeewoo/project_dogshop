@@ -1,0 +1,286 @@
+@charset "UTF-8";
+body{
+	margin:0;
+	padding:0;
+	font-family:"나눔바른고딕";
+}
+
+
+/* 메뉴 */
+#menu{
+	float:left;
+	width:100%;
+	height:33px;
+	margin:0;
+	padding:0;
+	background-color:white;
+	border:0;
+	border-bottom:1px solid #D9D9D9;
+	
+}
+ul.mainmenu1{
+	position:absolute;
+	left:300px;
+	width:602px;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+ul.mainmenu2{
+	position:absolute;
+	left:902px;
+	width:700px;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+ul.mainmenu1>li{
+	float:left;
+}
+ul.mainmenu2>li{
+	float:right;
+}
+.mainmenu1>li>a, .mainmenu2>li>a{
+	display:block;
+	padding: 8px 8px;
+	color:#404040;
+	font-size:9pt;
+	letter-spacing:-1px;
+	text-align:center;
+	text-decoration:none;
+	cursor:pointer;
+	
+}
+/* .mainmenu2>li:hover .mypage1, .mypage1:hover .mypage1{
+	opacity:1;
+	visibility:visible;
+}  */
+.mypage1{
+	position:absolute;
+	top:33px;
+	left:620px;
+	width:80px;
+	opacity:0;
+	visibility:hidden;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	border:1px solid #E5E1E5;
+}
+.mypage1>li{
+	padding:8px 16px;
+}
+.mypage1>li>a{
+	color:black;
+	text-decoration:none;
+	font-size:10pt;
+}
+
+/* 로고 */
+#middle_section{
+	float:left;
+	width:100%;
+	height:150px;
+	
+}
+.logo img{
+	position:absolute;
+	left:300px;
+	top:75px;
+	/* width:70px; */
+	height:80px;
+}
+.search{
+	position:absolute;
+	left:800px;
+	top:90px;
+	border:1px solid #D9D9D9;
+	border-radius: 25px; 
+	width:350px;
+	height:40px;
+}
+.search input{
+	position:absolute;
+	left:15px;
+	top:10px;
+	border:0; 
+	font-size:11pt;
+	width:280px;
+	outline:none;
+}
+.search img{
+	width:20px;
+	z-index:10;
+}
+.search .btn_search_submit{
+	position:absolute;
+	left:310px;
+	top:9px; 
+	width:35px;
+	border:0; 
+	background-color:white;
+	outline:none;
+}
+.search2{
+	position:absolute;
+	left:800px;
+	top:130px;
+	border:0;
+	
+	width:350px;
+	height:30px;
+	backgroun-color:gray;
+}
+.search2 ul{
+	position:absolute;
+	left:10px;
+	width:300px;
+	margin:0;
+	padding:5px;
+	list-style-type:none;
+}
+.search2 li{
+	float:left;
+	
+}
+.search2 li a{
+	display:block;
+	padding:5px;
+	padding-top:1px;
+	color:#404040;
+	font-size:9pt;
+	letter-spacing:-1px;
+	text-align:center;
+	text-decoration:none;
+}
+.search2 img{
+	width:15px;
+}
+
+
+/* 카테고리 */
+#category{
+	float:left;
+	width:100%;
+	height:38px;
+	margin:0;
+	padding:0;
+	background-color:white;
+	border-top:1px solid #D9D9D9;
+	border-bottom:2px solid #FBC773;
+}
+ul.maincate{
+	position:absolute;
+	left:300px;
+	width:1302px;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+ul.maincate>li{
+	float:left;
+}
+.maincate>li.cate1>a{
+	display:block;
+	padding: 11px 16px 11px 16px;
+	color:black;
+	font-size:10pt;
+	font-weight:bold;
+	letter-spacing:-1px;
+	text-align:center;
+	text-decoration:none;
+	border:1px solid #D9D9D9;
+	border-top:0;
+	border-bottom:0;
+}
+
+.maincate>li.cate3>a{
+	display:block;
+	padding: 11px 16px 11px 16px;
+	color:black;
+	font-size:10pt;
+	letter-spacing:-1px;
+	text-align:center;
+	text-decoration:none;
+}
+.maincate>li:hover .subcate1{
+	opacity:1;
+	visibility:visible;
+} 
+.subcate1 li:hover .subcate1{
+	opacity:1;
+	visibility:visible;
+} 
+.subcate1{
+	position:absolute;
+	top:38px;
+	height:105px;
+	background:white;
+	opacity:0;
+	visibility:hidden;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	border:1px solid #E5E1E5;
+	z-index:10;
+}
+.subcate1>li{
+	padding:8px 16px;
+}
+.subcate1>li>a{
+	color:black;
+	text-decoration:none;
+	font-size:10pt;
+}
+.allcate{
+	cursor:pointer;
+}
+.subcate0{
+	position:absolute;
+	top:38px;
+	width:600px;
+	height:120px;
+	background:white;
+	opacity:0;
+	visibility:hidden;
+	margin:0;
+	padding:10px;
+	list-style-type:none;
+	border:1px solid #E5E1E5;
+	z-index:10;
+}
+.subcate0 .s{
+	position:absolute;
+	left:10px;;
+}
+.subcate0 .m{
+	position:absolute;
+	left:210px;
+}
+.subcate0 .l{
+	position:absolute;
+	left:410px;
+}
+.subcate0>li{
+	padding:8px 16px;
+}
+.subcate0 li a{
+	color:black;
+	font-size:10pt;
+	text-decoration:none;
+	line-height:2;
+	padding:2px 4px 2px 4px;
+}
+.subcate0 li a.title{
+	color:black;
+	font-size:11pt;
+	text-decoration:none;
+	font-weight:bold;
+	border-bottom:1px solid black;
+	padding-bottom:5px;
+	padding-right:70px;
+}
+.hover2:hover{
+	background-color:#FBC773;
+}
+

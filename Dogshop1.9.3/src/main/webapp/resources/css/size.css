@@ -1,0 +1,137 @@
+@charset "UTF-8";
+#content{
+	float:left;
+	width:100%; 
+	min-height:600px;
+}
+.small, .middle, .large{
+    position:relative;
+    left: 300px;
+    width:1302px;
+}
+.small ul, .middle ul, .large ul{
+	position:absolute;
+	left:0px;
+	width:100%;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+}
+.small li, .middle li, .large li{
+	float:left;
+}
+.small li a.hover1, .middle li a.hover1, .large li a.hover1{
+	display:block;
+	padding: 4px 11px 4px 11px;
+	margin: 7px 5px 7px 5px;
+	font-size:10pt;
+	font-weight:bold;
+	letter-spacing:-1px;
+	text-align:center;
+	text-decoration:none;
+	cursor:pointer;
+	color:black;
+}
+.small img, .middle img, .large img{
+	width:400px;
+	height:250px;
+	padding-right:30px;
+}
+.product1{
+	float:left;
+	width:430px;
+	height:280px;
+	padding-top:60px;
+	text-align:center;
+}
+.product1 figure{
+	margin:0;
+}
+.product1 a{
+	text-decoration:none;
+	color:black;
+}
+.insert1{
+	float:left;
+	width:400px;
+	height:250px;
+	border:2px solid #404040;
+	border-radius:10px;
+}
+.insert1 a{
+	text-decoration:none;
+}
+.insert1 img{
+	width:50px;
+	height:50px;
+	padding:100px 125px;
+}
+.hover1:hover{
+	background-color:#FBC773;
+}
+.hover2:hover{
+	background-color:#FBC773;
+}
+
+
+.page_wrap {
+	float:left;
+	width:100%;
+	height:70px;
+	text-align: center;
+}
+
+.page_nation {
+	display: inline-block;
+}
+
+.page_nation .none {
+	display: none;
+}
+
+.page_nation a {
+	display: block;
+	margin: 0 3px;
+	float: left;
+	border: 1px solid #e6e6e6;
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	background-color: #fff;
+	font-size: 13px;
+	color: #999999;
+	text-decoration: none;
+}
+
+.page_nation .arrow {
+	border: 1px solid #ccc;
+}
+
+.page_nation .pprev {
+	background: #f8f8f8 url('img/page_pprev.png') no-repeat center center;
+	margin-left: 0;
+}
+
+.page_nation .prev {
+	background: #f8f8f8 url('img/page_prev.png') no-repeat center center;
+	margin-right: 7px;
+}
+
+.page_nation .next {
+	background: #f8f8f8 url('img/page_next.png') no-repeat center center;
+	margin-left: 7px;
+}
+
+.page_nation .nnext {
+	background: #f8f8f8 url('img/page_nnext.png') no-repeat center center;
+	margin-right: 0;
+}
+
+.page_nation a.active {
+	background-color: #42454c;
+	color: #fff;
+	border: 1px solid #42454c;
+}

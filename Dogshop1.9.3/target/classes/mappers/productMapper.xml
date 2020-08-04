@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="productMapper">
+   
+   <insert id="insert" parameterType="kr.co.vo.ProductVO" useGeneratedKeys="true" keyProperty="pno">
+   <selectKey keyProperty="pno" resultType="int" order="BEFORE">
+   		SELECT DS_PRODUCT_SEQ.NEXTVAL FROM DUAL
+   </selectKey>
+   INSERT INTO DS_PRODUCT(		 PNO
+   								,TITLE
+   								,CONTENT
+   								,TYPE
+   								,SEX
+   								,AGE
+   								,PRICE
+   								,BREED
+   								,INOCULATION
+   								,SHAPE )
+   					VALUES(		 #{pno}
+   								,#{title}
+   								,#{content}
+   								,#{type}
+   								,#{sex}
+   								,#{age}
+   								,#{price}
+   								,#{breed}
+   								,#{inoculation}
+   								,#{shape}  )
+   	
+   	</insert>
+   	
+   	<insert id="insertFile" parameterType="hashMap">
+		INSERT INTO PRODUCT_FILE(
+			FILE_NO,
+			PNO,
+			ORG_FILE_NAME,
+			STORED_FILE_NAME,
+			FILE_SIZE
+		)VALUES(
+			SEQ_PRODUCT_FILE_NO.NEXTVAL,
+			#{PNO},
+			#{ORG_FILE_NAME},
+			#{STORED_FILE_NAME},
+			#{FILE_SIZE}
+		)
+    </insert>
+    
+    <select id="selectFile" parameterType="int" resultType="kr.co.vo.ProductFileVO">
+    	SELECT * FROM PRODUCT_FILE
+		WHERE PNO=#{pno}
+		ORDER BY PNO ASC
+    </select>
+    
+    <!-- 첨부파일 조회 -->
+	<select id="selectFileList" parameterType="int" resultType="hashMap">
+	SELECT FILE_NO,
+		   ORG_FILE_NAME,
+		   ROUND(FILE_SIZE/1024,1) AS FILE_SIZE
+	  FROM PRODUCT_FILE
+	 WHERE PNO = #{PNO}
+	   AND DEL_GB = 'N'
+       ORDER BY FILE_NO ASC
+	</select>
+    
+   	
+   	
+   	<select id="sizePage" resultType="kr.co.vo.ProductVO" parameterType="kr.co.vo.ProductCriteria">
+		SELECT  DS.PNO, 
+		        DS.TITLE, 
+		        DS.PRICE,
+		        DS.SHAPE,
+		        DS.TYPE,
+		        PF.STORED_FILE_NAME
+		 FROM ( 
+		        SELECT PNO, 
+		               TITLE, 
+		               PRICE, 
+		               SHAPE,
+		               TYPE,
+		               ROW_NUMBER() OVER(ORDER BY PNO DESC) AS RNUM
+		         FROM DS_PRODUCT
+		         WHERE SHAPE=#{shape}
+		                       ) DS JOIN PRODUCT_FILE PF ON DS.PNO = PF.PNO
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		AND PF.STORED_FILE_NAME LIKE 'sd%'
+		ORDER BY PNO DESC
+	</select>
+	
+	<select id="sizeCount" parameterType="String" resultType="int">
+	<![CDATA[
+		SELECT COUNT(PNO)
+		  FROM DS_PRODUCT
+		 WHERE PNO > 0
+		 AND SHAPE=#{shape}
+	]]>
+	</select>
+   	
+   	<select id="listPage" resultType="kr.co.vo.ProductVO" parameterType="kr.co.vo.ProductCriteria">
+		SELECT  DS.PNO, 
+		        DS.TITLE, 
+		        DS.PRICE,
+		        DS.SHAPE,
+		        DS.TYPE,
+		        PF.STORED_FILE_NAME
+		 FROM ( 
+		        SELECT PNO, 
+		               TITLE, 
+		               PRICE, 
+		               SHAPE,
+		               TYPE,
+		               ROW_NUMBER() OVER(ORDER BY PNO DESC) AS RNUM
+		         FROM DS_PRODUCT
+		         WHERE TYPE=#{type}
+		                       ) DS JOIN PRODUCT_FILE PF ON DS.PNO = PF.PNO
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		AND PF.STORED_FILE_NAME LIKE 'sd%'
+		ORDER BY PNO DESC
+	</select>
+   	
+   	<select id="listCount" parameterType="String" resultType="int">
+	<![CDATA[
+		SELECT COUNT(PNO)
+		  FROM DS_PRODUCT
+		 WHERE PNO > 0
+		 AND TYPE=#{type}
+	]]>
+	</select>
+	
+	<select id="searchPage" resultType="kr.co.vo.ProductVO" parameterType="kr.co.vo.ProductCriteria">
+		SELECT  DS.PNO, 
+		        DS.TITLE, 
+		        DS.PRICE,
+		        DS.SHAPE,
+		        DS.TYPE,
+		        PF.STORED_FILE_NAME
+		 FROM ( 
+		        SELECT PNO, 
+		               TITLE, 
+		               PRICE, 
+		               SHAPE,
+		               TYPE,
+		               ROW_NUMBER() OVER(ORDER BY PNO DESC) AS RNUM
+		         FROM DS_PRODUCT
+		         WHERE TITLE LIKE '%'||#{keyword}||'%'
+		                       ) DS JOIN PRODUCT_FILE PF ON DS.PNO = PF.PNO
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		AND PF.STORED_FILE_NAME LIKE 'sd%'
+		ORDER BY PNO DESC
+	</select>
+   	
+   	<select id="searchCount" parameterType="String" resultType="int">
+	<![CDATA[
+		SELECT COUNT(PNO)
+		  FROM DS_PRODUCT
+		 WHERE PNO > 0
+		 AND TITLE LIKE '%'||#{keyword}||'%'
+	]]>
+	</select>
+	
+   	
+   	<select id="read" parameterType="int" resultType="kr.co.vo.ProductVO">
+   	
+   	SELECT 	PNO
+   			,TITLE
+   			,CONTENT
+   			,TYPE
+   			,SEX
+   			,AGE
+   			,PRICE
+   			,BREED
+   			,INOCULATION
+   			,SHAPE 
+   	FROM DS_PRODUCT
+   	WHERE PNO = #{pno}
+
+   	</select>
+   	
+   	<update id="update" parameterType="kr.co.vo.ProductVO">
+   	
+   	UPDATE DS_PRODUCT
+   	   SET TITLE = #{title},
+   	       CONTENT = #{content},
+   	       TYPE = #{type},
+   	       SEX = #{sex},
+   	       AGE = #{age},
+   	       PRICE = #{price},
+   	       BREED = #{breed},
+   	       INOCULATION = #{inoculation},
+   	       SHAPE = #{shape}
+    WHERE PNO = #{pno}
+    
+   	</update>
+   	
+   	<update id="updateFile" parameterType="hashMap">
+    	UPDATE PRODUCT_FILE SET
+    	DEL_GB = 'Y'
+    	WHERE FILE_NO = #{FILE_NO}
+    </update>
+   
+   <delete id="delete" parameterType="int">
+   
+   DELETE
+   	 FROM DS_PRODUCT
+   WHERE PNO = #{pno}
+   </delete>
+   
+   <select id="indexPro" resultType="kr.co.vo.ProductVO">
+    <![CDATA[
+    	SELECT DS.PNO, 
+		       DS.TITLE,
+		       PF.STORED_FILE_NAME
+		FROM DS_PRODUCT DS JOIN PRODUCT_FILE PF ON DS.PNO = PF.PNO
+		WHERE ROWNUM <= 9
+		AND PF.STORED_FILE_NAME LIKE 'sd%'
+		ORDER BY PNO DESC
+    ]]>
+    </select>
+    
+        
+    
+   
+</mapper>
